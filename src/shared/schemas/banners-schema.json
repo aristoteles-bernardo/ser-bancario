@@ -1,0 +1,68 @@
+
+
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "urn:table:banners",
+  "type": "object",
+  "title": "Banners",
+  "description": "Stores homepage banners and promotional content.",
+  "required": ["title", "banner_image_url"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "ID",
+      "description": "Primary key, auto-incrementing banner ID.",
+      "readOnly": true,
+      "primaryKey": true
+    },
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "description": "Main headline text for the banner."
+    },
+    "subtitle": {
+      "type": "string",
+      "title": "Subtitle",
+      "description": "Optional subtitle or supporting text."
+    },
+    "banner_image_url": {
+      "type": "string",
+      "title": "Banner Image",
+      "description": "URL to the banner background image.",
+      "widget": "media_url"
+    },
+    "link_url": {
+      "type": "string",
+      "title": "Link URL",
+      "description": "Optional URL where the banner should link to.",
+      "widget": "web_url"
+    },
+    "display_order": {
+      "type": "integer",
+      "title": "Display Order",
+      "description": "Order in which banners are displayed (lower numbers first).",
+      "default": 1
+    },
+    "is_active": {
+      "type": "integer",
+      "title": "Is Active",
+      "description": "Boolean flag (1 for active, 0 for inactive).",
+      "default": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At",
+      "description": "Timestamp of record creation.",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At",
+      "description": "Timestamp of last update.",
+      "readOnly": true
+    }
+  }
+}
+

@@ -1,0 +1,72 @@
+
+
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "urn:table:sponsors",
+  "type": "object",
+  "title": "Sponsors",
+  "description": "Stores sponsors and partners information.",
+  "required": ["name", "logo_url", "website_url"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "ID",
+      "description": "Primary key, auto-incrementing sponsor ID.",
+      "readOnly": true,
+      "primaryKey": true
+    },
+    "name": {
+      "type": "string",
+      "title": "Company Name",
+      "description": "Sponsor or partner name.",
+      "unique": true,
+      "index": true
+    },
+    "logo_url": {
+      "type": "string",
+      "title": "Logo Image",
+      "description": "URL to the sponsor's logo image.",
+      "widget": "media_url"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "Optional brief description of the sponsor.",
+      "widget": "textarea"
+    },
+    "website_url": {
+      "type": "string",
+      "title": "Website URL",
+      "description": "URL to the sponsor's website.",
+      "widget": "web_url"
+    },
+    "display_order": {
+      "type": "integer",
+      "title": "Display Order",
+      "description": "Manual ordering index for display.",
+      "default": 0
+    },
+    "is_active": {
+      "type": "integer",
+      "title": "Is Active",
+      "description": "Flag indicating if sponsor is active (1=true, 0=false).",
+      "default": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At",
+      "description": "Timestamp of record creation.",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At",
+      "description": "Timestamp of last update.",
+      "readOnly": true
+    }
+  }
+}
+
+

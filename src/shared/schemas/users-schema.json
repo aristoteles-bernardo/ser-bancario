@@ -1,0 +1,67 @@
+
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "urn:table:users",
+  "type": "object",
+  "title": "Users",
+  "description": "Stores administrator user accounts with roles and authentication info.",
+  "required": ["email", "role"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "ID",
+      "description": "Primary key, auto-incrementing user ID.",
+      "readOnly": true,
+      "primaryKey": true
+    },
+    "uuid": {
+      "type": "string",
+      "description": "Universally unique identifier for API usage.",
+      "unique": true,
+      "index": true
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email Address",
+      "description": "User's login email.",
+      "unique": true,
+      "index": true
+    },
+    "name": {
+      "type": "string",
+      "title": "Full Name",
+      "description": "User's full display name."
+    },
+    "role": {
+      "type": "string",
+      "title": "User Role",
+      "description": "Role of the user: Superadmin or Gestor.",
+      "enum": ["superadmin", "gestor"]
+    },
+    "password_hash": {
+      "type": "string",
+      "description": "Hashed password for authentication."
+    },
+    "is_active": {
+      "type": "integer",
+      "title": "Is Active",
+      "description": "Boolean flag (1 for active, 0 for inactive).",
+      "default": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At",
+      "description": "Timestamp of account creation.",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At",
+      "description": "Timestamp of the last update.",
+      "readOnly": true
+    }
+  }
+}

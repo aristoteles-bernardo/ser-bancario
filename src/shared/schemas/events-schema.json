@@ -1,0 +1,77 @@
+
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "urn:table:events",
+  "type": "object",
+  "title": "Events",
+  "description": "Stores events for the portal.",
+  "required": ["title", "event_date", "event_time", "location", "capacity"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "ID",
+      "description": "Primary key, auto-incrementing event ID.",
+      "readOnly": true,
+      "primaryKey": true
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly unique slug for the event.",
+      "unique": true,
+      "index": true
+    },
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "description": "Event title."
+    },
+    "description_html": {
+      "type": "string",
+      "title": "Description HTML",
+      "description": "Rich-text HTML description of the event."
+    },
+    "event_date": {
+      "type": "string",
+      "format": "date",
+      "title": "Event Date",
+      "description": "Date of the event."
+    },
+    "event_time": {
+      "type": "string",
+      "format": "time",
+      "title": "Event Time",
+      "description": "Time of the event."
+    },
+    "location": {
+      "type": "string",
+      "title": "Location",
+      "description": "Event location address or venue name."
+    },
+    "banner_image_url": {
+      "type": "string",
+      "title": "Banner Image URL",
+      "description": "URL to the event banner image stored in cloud asset storage.",
+      "unique": false,
+      "index": false
+    },
+    "capacity": {
+      "type": "integer",
+      "title": "Capacity",
+      "description": "Maximum number of attendees."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At",
+      "description": "Timestamp of record creation.",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At",
+      "description": "Timestamp of last update.",
+      "readOnly": true
+    }
+  }
+}

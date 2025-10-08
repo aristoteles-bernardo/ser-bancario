@@ -1,0 +1,80 @@
+
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "urn:table:blogposts",
+  "type": "object",
+  "title": "BlogPosts",
+  "description": "Stores blog posts for the portal.",
+  "required": ["title", "publication_date", "author"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "ID",
+      "description": "Primary key, auto-incrementing blog post ID.",
+      "readOnly": true,
+      "primaryKey": true
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly unique slug for the blog post.",
+      "unique": true,
+      "index": true
+    },
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "description": "Main headline of the blog post."
+    },
+    "subtitle": {
+      "type": "string",
+      "title": "Subtitle",
+      "description": "Optional subtitle or summary."
+    },
+    "body_html": {
+      "type": "string",
+      "title": "Body HTML",
+      "description": "Rich-text HTML content of the blog post."
+    },
+    "categories": {
+      "type": "string",
+      "title": "Categories",
+      "description": "Comma-separated categories assigned to the blog post."
+    },
+    "tags": {
+      "type": "string",
+      "title": "Tags",
+      "description": "Comma-separated tags for the blog post."
+    },
+    "publication_date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Publication Date",
+      "description": "Date and time when the blog post was published."
+    },
+    "author": {
+      "type": "string",
+      "title": "Author",
+      "description": "Name of the author."
+    },
+    "social_links": {
+      "type": "string",
+      "title": "Social Links",
+      "description": "JSON string storing array of social media URLs linked to the blog post."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At",
+      "description": "Timestamp of record creation.",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At",
+      "description": "Timestamp of last update.",
+      "readOnly": true
+    }
+  }
+}
+

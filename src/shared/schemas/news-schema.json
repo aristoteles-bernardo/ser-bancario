@@ -1,0 +1,86 @@
+
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "urn:table:news",
+  "type": "object",
+  "title": "News",
+  "description": "Stores news articles for the portal.",
+  "required": ["title", "publication_date", "author"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "ID",
+      "description": "Primary key, auto-incrementing news ID.",
+      "readOnly": true,
+      "primaryKey": true
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly unique slug for the news article.",
+      "unique": true,
+      "index": true
+    },
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "description": "Main headline of the news article."
+    },
+    "subtitle": {
+      "type": "string",
+      "title": "Subtitle",
+      "description": "Optional subtitle or summary."
+    },
+    "body_html": {
+      "type": "string",
+      "title": "Body HTML",
+      "description": "Rich-text HTML content of the article."
+    },
+    "categories": {
+      "type": "string",
+      "title": "Categories",
+      "description": "Comma-separated categories assigned to the article."
+    },
+    "tags": {
+      "type": "string",
+      "title": "Tags",
+      "description": "Comma-separated tags for the article."
+    },
+    "publication_date": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Publication Date",
+      "description": "Date and time when the article was published."
+    },
+    "author": {
+      "type": "string",
+      "title": "Author",
+      "description": "Name of the author."
+    },
+    "is_featured": {
+      "type": "integer",
+      "title": "Is Featured",
+      "description": "Boolean flag (1 for featured, 0 otherwise).",
+      "default": 0
+    },
+    "social_links": {
+      "type": "string",
+      "title": "Social Links",
+      "description": "JSON string storing array of social media URLs linked to the article."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At",
+      "description": "Timestamp of record creation.",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At",
+      "description": "Timestamp of last update.",
+      "readOnly": true
+    }
+  }
+}
+

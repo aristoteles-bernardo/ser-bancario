@@ -1,0 +1,93 @@
+
+
+{
+  "contact_form": {
+    "dbSchemaName": "contact_submissions",
+    "sendNotificationEmail": false,
+    "sendFeedbackEmail": false,
+    "emailSubject": "Obrigado por entrar em contato",
+    "emailTemplate": "<!DOCTYPE html><html><body style=\"font-family: Arial, sans-serif; padding: 20px;\"><h1>Olá {{nome}}</h1><p>Obrigado pela sua mensagem:</p><p><strong>{{mensagem}}</strong></p><p>Entraremos em contato em breve.</p></body></html>",
+    "replyToEmail": "",
+    "jsonSchema": {
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$id": "contact_form_schema",
+      "type": "object",
+      "title": "Formulário de Contato",
+      "description": "Entre em contato connosco",
+      "required": ["nome", "email", "mensagem"],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome Completo",
+          "description": "O seu nome completo",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "title": "E-mail",
+          "description": "O seu endereço de e-mail"
+        },
+        "telefone": {
+          "type": "string",
+          "title": "Telefone",
+          "description": "O seu número de telefone (opcional)",
+          "maxLength": 20
+        },
+        "mensagem": {
+          "type": "string",
+          "title": "Mensagem",
+          "description": "A sua mensagem",
+          "minLength": 10,
+          "maxLength": 1000,
+          "multiline": true
+        }
+      }
+    }
+  },
+  "event_booking": {
+    "dbSchemaName": "eventbookings",
+    "sendNotificationEmail": false,
+    "sendFeedbackEmail": false,
+    "emailSubject": "Reserva de Evento Confirmada",
+    "emailTemplate": "<!DOCTYPE html><html><body style=\"font-family: Arial, sans-serif; padding: 20px;\"><h1>Olá {{nome}}</h1><p>A sua reserva foi confirmada para o evento:</p><p><strong>{{evento}}</strong></p><p>Receberá mais detalhes em breve.</p></body></html>",
+    "replyToEmail": "",
+    "jsonSchema": {
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$id": "event_booking_schema",
+      "type": "object",
+      "title": "Reserva de Evento",
+      "description": "Reserve a sua vaga no evento",
+      "required": ["nome", "email"],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome Completo",
+          "description": "O seu nome completo",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "title": "E-mail",
+          "description": "O seu endereço de e-mail"
+        },
+        "telefone": {
+          "type": "string",
+          "title": "Telefone",
+          "description": "O seu número de telefone (opcional)",
+          "maxLength": 20
+        },
+        "empresa": {
+          "type": "string",
+          "title": "Empresa",
+          "description": "Nome da sua empresa (opcional)",
+          "maxLength": 100
+        }
+      }
+    }
+  }
+}
+

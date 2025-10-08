@@ -1,0 +1,61 @@
+ 
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "urn:table:eventbookings",
+  "type": "object",
+  "title": "EventBookings",
+  "description": "Stores user bookings for events with form data.",
+  "required": ["uniqueness_check", "form_data"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "title": "ID",
+      "description": "Primary key, auto-incrementing booking ID.",
+      "readOnly": true,
+      "primaryKey": true
+    },
+    "event_id": {
+      "type": "integer",
+      "description": "Foreign key referencing the event.",
+      "index": true
+    },
+    "uniqueness_check": {
+      "type": "string",
+      "description": "Unique identifier for deduplication (email preferred).",
+      "index": true
+    },
+    "form_data": {
+      "type": "string",
+      "description": "Complete booking form data stored as JSON string."
+    },
+    "notification_email_sent": {
+      "type": "integer",
+      "description": "Flag indicating if notification email was sent (1=true, 0=false).",
+      "default": 0
+    },
+    "reply_email_sent": {
+      "type": "integer",
+      "description": "Flag indicating if reply email was sent (1=true, 0=false).",
+      "default": 0
+    },
+    "email_sent_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of last email attempt."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At",
+      "description": "Timestamp of record creation.",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At",
+      "description": "Timestamp of last update.",
+      "readOnly": true
+    }
+  }
+}
