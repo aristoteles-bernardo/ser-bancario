@@ -1,11 +1,8 @@
-
-
-
 /** @type {import('tailwindcss').Config} */
 import tailwindcssMotion from 'tailwindcss-motion';
 
 export default {
-  content: ['./src/react-app/**/*.{html,js,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './src/react-app/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -69,6 +66,3 @@ export default {
   },
   plugins: [tailwindcssMotion],
 };
-
-
-
