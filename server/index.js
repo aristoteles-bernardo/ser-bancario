@@ -48,7 +48,7 @@ app.get("/api/news", async (req, res) => {
     const rows = await query(`
       SELECT 
         id, slug, title, subtitle, body_html, author, publication_date, is_featured,
-        image_url, categories, tags, created_at, updated_at
+        categories, tags, created_at, updated_at
       FROM news
       ORDER BY publication_date DESC
     `);
